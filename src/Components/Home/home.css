@@ -1,0 +1,49 @@
+.home-container {
+    padding: 60px;
+  }
+  .count{
+    text-align: left;
+  }
+  .new-project-btn {
+    display: flex;
+    justify-content: flex-start;
+    background-color: white;
+    color: #785DC8;
+    font-weight: bold;
+    border: none;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    cursor: pointer;
+  }
+  
+  .project-list {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  tr:hover {
+    background-color: #ddd;
+    cursor: pointer;
+  }
+  

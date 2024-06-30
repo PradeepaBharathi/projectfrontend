@@ -1,0 +1,65 @@
+.acc {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  height: 100vh; 
+   margin: 0 auto;
+}
+
+.login-form, .register-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; 
+    padding: 20px;
+    width: 40rem;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background: #f9f9f9;
+    box-shadow: 0 10px 12px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    text-align: left;
+}
+
+.frominput {
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.login-form button, .register-form button {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.login-btn {
+    background-color: violet;
+    color: white;
+    width: 80px;
+    height: 30px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+}
+
+.register-btn {
+    background-color: plum;
+    color: white;
+    width: 180px;
+    height: 30px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+}
+
+.btn-grp {
+    display: flex;
+    flex-direction: row;
+    gap: 10px; /* Add gap between the buttons if needed */
+}
+
+#name,#email,#password{
+  
+    height: 30px;
+}

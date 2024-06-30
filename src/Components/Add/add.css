@@ -1,0 +1,66 @@
+/* src/Project.css */
+.project-container {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    width: 400px;
+    margin: 20px auto;
+    background-color: #fff;
+}
+
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.status {
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.status.open {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.due-date {
+    color: #666;
+}
+
+.project-body {
+    display: flex;
+    flex-direction: column;
+    gap:1rem
+}
+
+.project-title,
+.project-overview,
+.document-link {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.project-overview {
+    height: 100px;
+    resize: none;
+}
+.start,.due{
+    width: 20rem;
+    height: 3rem;
+}
+.start-date,.due-date{
+    text-align: left;
+}
+.add-btn{
+    background-color: violet;
+    border: none;
+    font-weight: bold;
+    color: white;
+    height: 30px;
+    width: 120px;
+    border-radius: 9px;
+    margin-top: 40px;
+}
