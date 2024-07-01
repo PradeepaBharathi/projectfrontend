@@ -50,7 +50,17 @@ function EditProject() {
     <div className="project-container">
       <ToastContainer/>
       <div className="project-header">
-        <span className="status open">{projectDetails.status}</span>
+        <span className="status open"> <select
+            name="status"
+            value={projectDetails.status}
+            onChange={handleChange}
+            className='dropdown'
+          >
+            <option value="Open">Open</option>
+            <option value="In Progress">In Progress</option>
+            <option value="In Review">In Review</option>
+            <option value="Completed">Completed</option>
+          </select></span>
         <span className="due-date">Due by: <input type='date' name='dueby' value={projectDetails.dueby} onChange={handleChange} /></span>
       </div>
       <div className="project-body">

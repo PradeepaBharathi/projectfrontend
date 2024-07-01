@@ -21,6 +21,7 @@ const[status,setStatus] =('')
   };
   const handleStatusChange = (id, status) => {
     dispatch(updateProjectStatus({ id, status }));
+    window.location.reload()
   };
 
   return (
