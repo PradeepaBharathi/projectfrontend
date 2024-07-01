@@ -1,3 +1,4 @@
+import { chipClasses } from "@mui/material";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
@@ -10,11 +11,14 @@ export const loginUser = createAsyncThunk(
   "user/login",
   async (credentials, { rejectWithValue }) => {
     try {
+     
       const response = await axios.post(`${base_url}/user/login`, credentials);
       console.log(response)
       localStorage.setItem('token', response.data.token)
+      toast.success(response.data.data.message)
       return response.data;
     } catch (error) {
+      console.log(error)
       return rejectWithValue(error.response.data);
     }
   }
@@ -39,6 +43,7 @@ const userSlice = createSlice({
     loading: false,
     user: null,
     error: null,
+    addProjectStatus: 'idle', 
   },
 
   extraReducers: (builder) => {
@@ -51,7 +56,8 @@ const userSlice = createSlice({
       .addCase(loginUser.fulfilled, (state, action) => {
         state.loading = false;
         state.user = action.payload;
-        toast.success("Login successful!");
+        state.addProjectStatus='succeeded'
+        
       })
       .addCase(loginUser.rejected, (state, action) => {
         state.loading = false;

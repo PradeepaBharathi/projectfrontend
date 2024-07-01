@@ -3,7 +3,8 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateProject } from '../Store/ProjectSlice';
 import './edit.css';
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function EditProject() {
   const { id } = useParams();
   console.log(id)
@@ -27,6 +28,7 @@ function EditProject() {
         status: project.status,
        
       });
+      
     }
   }, [project]);
 
@@ -39,13 +41,14 @@ function EditProject() {
 
   const handleSubmit = () => {
     dispatch(updateProject({ ...projectDetails, _id: id })).then(() => {
-       
+      
       navigate("/home");
     });
   };
 
   return (
     <div className="project-container">
+      <ToastContainer/>
       <div className="project-header">
         <span className="status open">{projectDetails.status}</span>
         <span className="due-date">Due by: <input type='date' name='dueby' value={projectDetails.dueby} onChange={handleChange} /></span>

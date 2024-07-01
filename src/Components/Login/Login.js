@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import './Login.css'
 import { useDispatch } from 'react-redux';
 import { loginUser, signupUser } from '../Store/UserSlice';
-import { ToastContainer } from 'react-toastify';
+import { ToastContainer,toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 function Login() {
     const [account, setAccount] = useState("login");
@@ -12,21 +13,30 @@ function Login() {
     const [password, setPassword] = useState("");
     const [name, setName] = useState("");
     const dispatch = useDispatch();
-    const nav = useNavigate()
+    const navigate = useNavigate()
+    const { loading, error, user } = useSelector((state) => state.user);
+
+    useEffect(() => {
+        if (user) {
+            toast.success("Login Success");
+            setTimeout(() => {
+                navigate('/home');
+            }, 1000);
+        }
+       
+    }, [user, error, navigate]);
+   
+
     const handleLogin = (e) => {
         e.preventDefault();
         let credentials = { email, password };
-        dispatch(loginUser(credentials)).then(() => {
-            nav('/home'); 
-        });
+        dispatch(loginUser(credentials))
     };
 
     const handleSignup = (e) => {
         e.preventDefault();
         let userData = { name, email, password };
-        dispatch(signupUser(userData)).then(() => {
-            nav('/home'); 
-        });
+        dispatch(signupUser(userData))
     };
 
     return (

@@ -147,7 +147,7 @@ const projectsSlice = createSlice({
           state.loading = false;
           state.projects.push(action.payload);
           state.addProjectStatus = 'succeeded'; 
-          toast.success("Project Added!");
+          
         })
         .addCase(addProject.rejected, (state, action) => {
           state.loading = false;
