@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import './home.css';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchProjects, fetchProjectById } from '../Store/ProjectSlice';
+import { fetchProjects, fetchProjectById, updateProjectStatus } from '../Store/ProjectSlice';
 import { useNavigate } from 'react-router-dom';
 
 function Home() {
@@ -18,6 +18,9 @@ const[status,setStatus] =('')
        
       navigate(`/edit/${id}`);
     });
+  };
+  const handleStatusChange = (id, status) => {
+    dispatch(updateProjectStatus({ id, status }));
   };
 
   return (
@@ -44,9 +47,9 @@ const[status,setStatus] =('')
                 <td>{project.dueby}</td>
                 <td>
                   <select
-                    value={status}
+                    value={project.status}
                    key={project._id}
-                  
+                   onChange={(e) => handleStatusChange(project._id, e.target.value)}
                   >
                   
                    

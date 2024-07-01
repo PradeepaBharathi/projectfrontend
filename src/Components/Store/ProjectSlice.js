@@ -102,6 +102,19 @@ export const updateProject = createAsyncThunk(
     }
   );
   
+  export const updateProjectStatus = createAsyncThunk('projects/updateProjectStatus', async ({ id, status }) => {
+    const token = getToken();
+    if (!token) {
+      throw new Error("No token found");
+    }
+    const response = await axios.put(`${base_url}/project/edit/${id}`, { status },{
+      headers: {
+        'x-auth-token': token
+      }
+    });
+    console.log(response.data.data.status)
+    return { id, status: response.data.data.status };
+  });
 
 const projectsSlice = createSlice({
     name: "projects",
@@ -179,6 +192,7 @@ const projectsSlice = createSlice({
                 state.error = action.payload;
                 toast.error(`Error updating project: ${action.payload}`);
               });
+              
     },
   });
 
