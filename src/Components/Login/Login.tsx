@@ -1,24 +1,27 @@
 import React, { useState,useEffect } from 'react';
 import './Login.css'
-import { useDispatch } from 'react-redux';
+
 import { loginUser, signupUser } from '../Store/UserSlice';
-import { ToastContainer,toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 
-function Login() {
+import { RootState } from '../Store/index';
+import { useAppDispatch, useAppSelector } from '../Store/react-hooks';
+
+
+const Login : React.FC=()=> {
     const [account, setAccount] = useState("login");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [name, setName] = useState("");
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     const navigate = useNavigate()
-    const { loading, error, user } = useSelector((state) => state.user);
-
+    const {  error, user } = useAppSelector((state:RootState) => state.user);
+    
     useEffect(() => {
         if (user) {
-            toast.success("Login Success");
+    
             setTimeout(() => {
                 navigate('/home');
             }, 1000);
@@ -27,20 +30,20 @@ function Login() {
     }, [user, error, navigate]);
    
 
-    const handleLogin = (e) => {
+    const handleLogin = (e:any) => {
         e.preventDefault();
         let credentials = { email, password };
-        dispatch(loginUser(credentials))
+        dispatch<any>(loginUser(credentials))
     };
 
-    const handleSignup = (e) => {
+    const handleSignup = (e:any) => {
         e.preventDefault();
         let userData = { name, email, password };
-        dispatch(signupUser(userData))
+        dispatch<any>(signupUser(userData))
     };
 
     return (
-        <div className='acc'>
+        <div className='acc' data-testid='login'>
             <ToastContainer />
             <h1>PROJECT SCHEME</h1>
             {account === 'login' ? (
@@ -80,6 +83,7 @@ function Login() {
                             type='text'
                             required
                             placeholder='Name'
+                            data-testid='Name'
                             id='name'
                             value={name}
                             onChange={(e) => setName(e.target.value)}

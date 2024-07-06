@@ -1,66 +1,128 @@
-/* src/Project.css */
-.project-container {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 20px;
-    width: 400px;
-    margin: 20px auto;
-    background-color: #fff;
+.project-container-add {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  width: 90vw;
+
+  margin-top: 16rem;
+  margin-left: 3rem;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
 }
 
 .project-header {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 20px;
 }
 
 .status {
-    padding: 5px 10px;
-    border-radius: 5px;
+  padding: 5px 10px;
+  border-radius: 5px;
 }
 
 .status.open {
-    background-color: #f8d7da;
-    color: #721c24;
+  background-color: #f8d7da;
+  color: #721c24;
+  margin-top: 10px;
 }
 
-.due-date {
-    color: #666;
-}
-
-.project-body {
-    display: flex;
-    flex-direction: column;
-    gap:1rem
+.project-body-add {
+  display: flex;
+  gap: 1rem;
 }
 
 .project-title,
-.project-overview,
-.document-link {
-    margin-bottom: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+.sd,
+.dd {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
 .project-overview {
-    height: 100px;
-    resize: none;
+  height: 100px;
+  resize: none;
 }
-.start,.due{
-    width: 20rem;
-    height: 3rem;
+
+.add-btn-add {
+  background-color: #7F7FE9;
+  border: none;
+  font-weight: bold;
+  color: white;
+  height: 40px;
+  width: 150px;
+  border-radius: 9px;
+  margin-bottom: 10px;
+  padding: 10px;
 }
-.start-date,.due-date{
-    text-align: left;
+
+.start-date-add,
+.due-date-add {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
-.add-btn{
-    background-color: violet;
-    border: none;
-    font-weight: bold;
-    color: white;
-    height: 30px;
-    width: 120px;
-    border-radius: 9px;
-    margin-top: 40px;
+.cancel {
+  margin-top: -10px;
+  border: none;
+  background: transparent;
+}
+
+@media screen and (max-width: 426px) and (min-width: 320px) {
+  .project-container-add {
+    padding: 20px;
+    width: 60vw;
+    margin: 0 auto;
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+  .project-body-add {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 769px) and (min-width:427px){
+    .project-container-add {
+        padding: 20px;
+        width: 60vw;
+        margin: 0 auto;
+        margin-top: 3rem;
+     
+        flex-direction: column;
+       
+        gap: 1rem;
+      }
+      .project-body-add {
+        flex-direction: column;
+      }
+      .status.open{
+        margin-left: -13rem;
+      }
+      .add-btn-add{
+        margin-left: -17rem;
+      }
+    .cancel{
+      margin-left: -25rem;
+    }
+    .sd,.dd{
+      width: 23rem;
+    }
+}
+@media screen and (max-width:1440px) and (min-width:1024px) {
+    .project-container-add{
+        width: 100vw;
+        gap: 1rem;
+    }
+    .project-title{
+      width: 10rem !important;
+    }
 }

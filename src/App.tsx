@@ -5,10 +5,12 @@ import Login from './Components/Login/Login';
 import Home from './Components/Home/Home';
 import AddProject from './Components/Add/AddProject';
 import EditProject from './Components/Edit/EditProject';
+import React from 'react';
 
-function App() {
+
+const App : React.FC=()=> {
   return (
-    <div className="App">
+    <div data-testid="start" className="App">
      <BrowserRouter>
      <Routes>
       <Route path='/' element={<Login/>}/>
@@ -17,6 +19,8 @@ function App() {
       <Route path='/edit/:id' element={<EditProject/>}/>
       </Routes>
       </BrowserRouter>
+
+
     </div>
   );
 }

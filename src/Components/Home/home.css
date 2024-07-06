@@ -1,5 +1,5 @@
 .home-container {
-    padding: 60px;
+    padding: 20px;
   }
   .count{
     text-align: left;
@@ -35,15 +35,52 @@
   }
   
   th {
-    background-color: #f2f2f2;
+    background-color: #F0F0FD;
   }
-  
-  tr:nth-child(even) {
-    background-color: #f2f2f2;
-  }
-  
+
   tr:hover {
     background-color: #ddd;
     cursor: pointer;
   }
+  .arrow{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .arrowimg{
+    width: 20px;
+    height: 20px;
+  }
+
+  .options{
+    border: none;
+    background-color: #F0F0FD;
+    font-size: 15px;
+    padding: 3px;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
   
+  th, td {
+    border: none;
+    border-bottom: 1px solid #ddd; /* Remove borders from table headers and cells */
+    padding: 8px;
+    text-align: right;
+  }
+
+  @media screen and (max-width:426px) and (min-width:320px){
+   
+   th,td{
+    padding: 5px;
+    font-size: x-small;
+   }
+   .options{
+    font-size: x-small;
+   }
+   .arrow{
+    margin-top: 3.5px;
+   }
+ }
